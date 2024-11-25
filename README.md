@@ -25,7 +25,7 @@ Der Internet Creator wird folgendermaßen aufgerufen:
 
 (1) ein vyos.qcow2 Image erstellen (siehe Setup.pdf) und unter /home/user/streams/create-vms/create-vms-vyos/ ablegen,
 
-(2) für alle, deren User nicht user heißt: Am besten das Skript useradd.sh (als root) laufen lassen. Das spart eine Menge Arbeit (vgl. Beschreibung und Gebrauchshinweise zum INC v0.8.pdf Anmerkung (4)). Ansonsten im create-vm-vyos_XYfs.sh und im create-vm-vyos-fast_XYfs.sh Zeile 43 anpassen. Außerdem sind die SSH-Credentials in der Datei user-data beim Erstellen der seed.iso anzupassen, sowie die ansible.cfg 
+(2) für alle, deren User nicht user heißt: Am besten das Skript useradd.sh (als root) laufen lassen. Das spart eine Menge Arbeit (vgl. Beschreibung und Gebrauchshinweise zum INC v0.8.pdf Anmerkung (4)). Ansonsten im create-vm-vyos_XYfs.sh Zeile 43 anpassen. Außerdem sind die SSH-Credentials in der Datei user-data beim Erstellen der seed.iso anzupassen, sowie die ansible.cfg 
 
 (3) eine seed.iso erstellen (siehe Setup.pdf) und unter /var/lib/vz/template/iso/ bzw. /var/lib/pve/local-btrfs/template/iso/ ablegen.
 
