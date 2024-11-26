@@ -3,9 +3,8 @@
 provider=$1
 fr=$2
 lr=$3
-ansible_limit=$4
-startdelay=$5
-refresh=$6
+startdelay=$4
+refresh=$5
 
 C='\033[0;94m'
 G='\033[0;32m'
