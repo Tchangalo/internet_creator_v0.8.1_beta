@@ -1,3 +1,5 @@
+import eventlet
+eventlet.monkey_patch()
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_socketio import SocketIO, emit
 import subprocess
@@ -8,7 +10,8 @@ import time
 
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'  # Hier einen sicheren Schlüssel verwenden
-socketio = SocketIO(app)
+#socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet', logger=False, engineio_logger=False, ping_timeout=20, ping_interval=10)
 
 GENERAL_SCRIPT_DIR = "/home/user/streams/ks/"
 SCRIPT_DIR = "/home/user/streams/"
@@ -142,7 +145,7 @@ def ping_test():
 
 def run_ping_script(provider, router):
     # Kurze Verzögerung, damit der WebSocket-Client Zeit hat, sich zu verbinden
-    time.sleep(0.3)  # Wartezeit in Sekunden
+    time.sleep(3)  # Wartezeit in Sekunden
     # Startet das Skript und leitet die Ausgabe an SocketIO weiter
     with subprocess.Popen(['./ping.sh', provider, router], stdout=subprocess.PIPE, text=True) as process:
         for line in process.stdout:
