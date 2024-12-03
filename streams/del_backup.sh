@@ -24,7 +24,7 @@ if [[ $(df -T / | awk 'NR==2 {print $2}') == "zfs" ]]; then
 		sudo vzdump ${provider}0${provider}00$i --dumpdir /var/lib/vz/dump --mode snapshot --compress 0
 		sleep 5
     	done
-	else
+else
 	sudo rm -rf /var/lib/pve/local-btrfs/dump
 	sudo mkdir /var/lib/pve/local-btrfs/dump
 	for i in $(seq $first_router $last_router); do 
